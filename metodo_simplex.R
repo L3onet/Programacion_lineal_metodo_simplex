@@ -96,4 +96,85 @@ lp(direction = "max", objective.in = funcion_objetivo, const.mat =restriciones_d
 # Se ejecuta la instrucción para mostrar los valores de x1 y x2.
 lp(direction = "max", objective.in = funcion_objetivo, const.mat =restriciones_derecho, const.dir = restriccion.direccion, const.rhs = lado_derecho.restriccion, int.vec = c(1, 2, 3, 4, 5), all.int = T)$solution
 
+# Argumentos más usados: 
 
+# direction: Variable cadena de caracteres que indica la dirección de optimización:
+# "min" (por defecto) o "max". 
+
+# objective.in: Vector numérico con los coeficientes de la función objetivo. 
+
+# const.mat: Matriz con los coeficientes numéricos de las restricciones, una fila por
+# restricción, una columna por variable (a menos que transpose.constraints = FALSE; ver 
+# más adelante) 
+
+# const.dir: Vector de cadenas de caracteres que indica la dirección de las restricciones.
+# Los valores pueden ser "<", "<=", "= ", ">" o ">=". 
+
+# const.rhs: Vector con los valores numéricos del lado derecho de las restricciones
+
+# transpose.constraints: Por defecto cada restricción ocupa una fila de const.mat, y tal
+# matriz necesita trasponerse antes de pasar al código de optimización. Cuando se tiene un
+# tamaño grande de matrices de restricciones es aconsejable construir la matriz de
+# restricciones por columnas. En tal caso, se debe poner transpose.constraints= FALSE. 
+
+# int.vec: Vector numérico que da los índices de las variables que deben ser enteras. La
+# longitud de este vector debe ser igual al número de variables enteras.
+
+# compute.sens: Valor numérico, respuesta a la pregunta ¿calculo sensibilidad? Si es un
+# valor distinto de cero, calcula la sensibilidad. Por defecto vale cero.
+
+# binary.vec: Vector numérico como int.vec que da los índices de las variables que
+# deben ser binarias.
+
+# all.int: Carácter lógico: Respuesta a la pregunta ¿son todas la variables enteras? Por
+# defecto: FALSE. 
+
+# all.bin: Carácter lógico: Respuesta a la pregunta ¿son todas la variables binarias? Por
+# defecto: FALSE. 
+
+# Valor: Un objeto de clase lp, una lista que contiene, entre otros, los siguientes elementos:
+# direction: La dirección de optimización del problema
+
+# x.count: Número de variables en la función objetivo
+
+# objective: Vector con los coeficientes de la función objetivo
+
+# const.count: Número de restricciones
+
+# constraints: Matriz de tasas de uso
+
+# int.count: Número de variables enteras
+
+# int.vec: Vector con los índices de las variables enteras
+
+# bin.count: Número de variables binarias
+
+# binary.vec: Vector con los índices de las variables binarias
+
+# objval: Valor óptimo de la función objetivo
+
+# solution: Vector con los valores óptimos
+
+# compute.sens: Proporciona el valor numérico a la pregunta ¿calculo sensibilidad?
+# que se dio en la llamada a la función. Si es un valor distinto de cero, el objeto contiene
+# los resultados del análisis de sensibilidad.
+
+# sens.coef.from: Proporciona los límites inferiores de los intervalos de variación de
+# los coeficientes de la función objetivo, para que la solución proporcionada siga siendo
+# óptima.
+
+# sens.coef.to: : Proporciona los límites superiores de los intervalos de variación de los
+# coeficientes de la función objetivo, para que la solución proporcionada siga siendo
+# óptima.
+
+# duals: Proporciona los valores de los costos reducidos en la tabla óptima del Simplex.
+
+# duals.from: Proporciona los límites inferiores de los intervalos de variación de los
+# coeficientes de la función objetivo del problema dual (o equivalentemente, de los
+# recursos del problema primal), para que la solución proporcionada siga siendo óptima.
+
+# duals.to: Proporciona los límites superiores de los intervalos de variación de los
+# coeficientes de la función objetivo del problema dual (o equivalentemente, de los
+# recursos del problema primal), para que la solución proporcionada siga siendo óptima.
+
+# status: Número que indica: 0= éxito, 2=solución no factible, 3=solución no acotada. 
