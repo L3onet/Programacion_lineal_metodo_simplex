@@ -70,7 +70,7 @@ library(lpSolve)
 
 # Se guardan en una matriz los coeficientes de la función objetivo
 funcion_objetivo <- c(150, 220)
-
+funcion_objetivo
 # Asignar los coeficientes de las desigualdades
 # 6x1 + 8x2  <= 750         6   8     (1)
 # x1         <= 100         1   0     (2)
@@ -83,13 +83,13 @@ restriciones_derecho
 
 # Se guarda en una matriz los simbolos de las desigualdades
 restriccion.direccion <- c("<=", "<=", "<=")
-
+restriccion.direccion
 # Asignar los valores del lado derecho de las desiguldades
 # 6x1 + 8x2  <= 750         750       (1)
 # x1         <= 100         100       (2)
 #         x2 <= 250         250       (3)
 lado_derecho.restriccion <- c(750, 100, 250)
-
+lado_derecho.restriccion
 # Se ejecuta la instrucción para mostrar el resultado que maximize la función
 lp(direction = "max", objective.in = funcion_objetivo, const.mat =restriciones_derecho, const.dir = restriccion.direccion, const.rhs = lado_derecho.restriccion, int.vec = c(1, 2, 3, 4, 5), all.int = T)
 
